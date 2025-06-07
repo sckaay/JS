@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Parent, Child, Sibling</title>
+    </head>
+
+    <body>
+        <div id="pai">
+            <p id="filho">Texto</p>
+        </div>
+
+        <script>
+            let p = document.getElementById("filho");
+            console.log(p.parentNode.id); // "pai"
+        </script>
+
+        <ul id="lista">
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+
+        <script>
+            let ul = document.getElementById("lista");
+            console.log(ul.children); // [li, li]
+            console.log(ul.childNodes); // inclui textos (espaços/enter)
+            console.log(ul.firstElementChild.innerText); // Item 1
+            console.log(ul.lastElementChild.innerText); // Item 2
+        </script>
+
+        <p id="p1">Um</p>
+        <p id="p2">Dois</p>
+
+        <script>
+            let p1 = document.getElementById("p1");
+            console.log(p1.nextElementSibling.innerText); // Dois
+            console.log(p2.previousElementSibling.innerText); // Um
+        </script>
+    </body>
+</html>

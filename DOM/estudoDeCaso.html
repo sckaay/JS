@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Tarefas</title>
+        <style>
+            body {font-family: Arial, sans-serif;}
+            #lista {margin-top: 10px;}
+            li {margin-bottom: 5px;}
+        </style>
+    </head>
+
+    <body>
+        <h1>Minha Lista de Tarefas</h1>
+
+        <!-- Cmapo de texto para digitar a nova tarefa -->
+         <input type="text" id="novaTarefa" placeholder="Digite a tarefa aqui">
+
+        <!-- Botão para adicionar a tarefa -->
+        <button id="adicionar">Adicionar Tarefa</button>
+
+        <!-- Lista de Tarefas -->
+        <ul id="lista"></ul>
+
+        <script>
+            // 1. acesso ao DOM - pegando elementos pela ID
+            const campoTarefa = document.getElementById("novaTarefa");
+            const botaoAdicionar = document.getElementById("adicionar");
+            const listaTarefas = document.getElementById("lista");
+
+            // 2. adicionando um "ouvinte" para o botão
+            botaoAdicionar.addEventListener("click", function () {
+                // 3. pegando o texto digitado no input
+                const textoTarefa = campoTarefa.value;
+
+                // 4. verifica se o campo não está vazio
+                if (textoTarefa.trim() !== "") {
+                    // 5. cria um novo elemento <li>
+                    const novaTarefa = document.createElement("li");
+
+                    // 6. modifica o DOM - coloca o texto dentro do <li>
+                    novaTarefa.innerText = textoTarefa;
+
+                    // 7. modifica o DOM - adiciona o <li> à lista
+                    listaTarefas.appendChild(novaTarefa);
+
+                    // 8. limpa o campo para próxima tarefa
+                    campoTarefa.value = "";
+                } else {
+                    // 9. exibe um alerta caso o campo esteja vazio
+                    alert("Por favor, digite uma tarefa antes de adicionar");
+                }
+            }
+        )
+        </script>
+    </body>
+</html>

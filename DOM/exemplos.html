@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exemplos</title>
+    </head>
+
+    <body>
+        <p id="mensagem">Olá mundo!</p>
+
+        <script>
+            let minhaMensagem = document.getElementById("mensagem") // 'document.getElementById(id)' retorna o elemento que possui o id especificado
+            console.log(minhaMensagem.innerText); // '.innerTexto' pega o texto interno do elemento que está sendo trabalhado
+        </script>
+
+        <p>Primeiro</p>
+        <p>Segundo</p>
+
+        <script>
+            let paragrafos = document.getElementsByTagName("p"); // 'getElementsByTagName()' retorna todos os elementos com a tag especificada
+            console.log(paragrafos[1].innerText); // Primeiro
+        </script>
+
+        <div class="bloco">Bloco 1</div>
+        <div class="bloco">Bloco 2</div>
+
+        <script>
+            let blocos = document.getElementsByClassName("bloco"); // 'GetElementsByClassName()' retorna todos os elementos da className especificada
+            console.log(blocos[0].innerText); // Bloco 1
+        </script>
+
+        <!-- Exemplo com CSS -->
+        <button class="botao">Botão 1</button>
+        <button class="botao">Botão 2</button>
+        <button>Botão Sem Classe</button>
+
+        <script>
+            // captura dos elementos com a classe 'botao'
+            let botoes = document.getElementsByClassName('botao');
+
+            // percorre cada botão e altera cor de fundo
+            for (let i = 0; i < botoes.length; i++) {
+                botoes[i].style.backgroundColor = "blue";
+            }
+        </script>
+
+        <p class="destaque">Parágrafo 1</p>
+        <p>Parágrafo 2</p>
+
+        <script>
+            let item = document.querySelector(".destaque"); // 'querySelector()' retorna o primeiro elemento que corresponde ao seletor CSS especificado
+            console.log(item.innerText); // texto
+
+            let todos = document.querySelectorAll("p"); //'document.querySelectorAll()' Retorna uma NodeList de todos os elementos que correspondem ao seletor CSS especificado
+            console.log(todos.length); // 5 pois conta todos os <p> do código
+        </script>
+    </body>
+</html>

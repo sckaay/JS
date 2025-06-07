@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Manipulando Elementos</title>
+    </head>
+
+    <body>
+        <div id="minhaDiv">
+            <p>Este é um <strong>parágrafo</strong> dentro da div.</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+        </div>
+
+        <script>
+            const minhaDiv = document.getElementById("minhaDiv");
+            const conteudoDiv = minhaDiv.innerHTML
+
+            console.log(conteudoDiv);
+        </script>
+
+        <div id="areaDeConteudo">
+            <p>Conteúdo Original.</p>
+        </div>
+
+        <!-- A função 'onclick' serve para chamar alguma ação quando o botão é clicado-->
+        <button onclick="mudarConteudo()">Mudar Conteúdo</button>
+
+        <script>
+            function mudarConteudo() {
+                const area = document.getElementById("areaDeConteudo");
+
+                // subistitui todo o conteúdo existente
+                area.innerHTML = `
+                        <h2>Novo Título</h2>
+                        <p>Este é um <em>novo</em> parágrafo adicionado dinamicamente.</p>
+                        `;
+            }
+        </script>
+
+        <p id="paragrafoExemplo">
+            Este é um parágrado com <strong>texto em negrito</strong> e uma <em>tag itálico</em>
+        </p>
+
+        <script>
+            const paragrafo = document.getElementById("paragrafoExemplo");
+            const textoPuro = paragrafo.textContent;
+
+            console.log(textoPuro);
+        </script>
+
+        <img id="imagem" src="https://i.ytimg.com/vi/xuqjvbopro8/maxresdefault.jpg" alt="Uma foto de exemplo">
+
+        <button onclick="mudarImagem()">Mudar Imagem</button>
+
+        <script>
+            function mudarImagem() {
+                // 1. acessa o elemento <img> pelo seu ID
+                let img = document.getElementById("imagem");
+
+                // 2. antes da mudança, mostra o src atual no console
+                console.log("Src antes da mudança:", img.getAttribute("src")); // saída: "foto1.png"
+
+                // 3. usa 'setAttribute' para mudar o valor do atributo "src"
+                // de "foto1.png" para "foto2.png"
+                img.setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReqhDCM2jiqw8XslcPb9mZH8b2XLUB92A4Tg&s");
+
+                // 4. após a mudança: mostra o novo src no console
+                console.log("Src depois da mudança:", img.getAttribute("src")); // saída: "foto2.png"
+
+                // exemplo de adição de um novo atributo (style)
+                // se a imagem já tivesse inline, este adicionaria
+                // se já tivesse, ele substituiria o valor
+                img.setAttribute("style", "border: 2px solid blue;");
+
+                // exemplo de atualização de um atributo existente (alt)
+                img.setAttribute("alt", "Nova foto");
+            }
+        </script>
+    </body>
+</html>
